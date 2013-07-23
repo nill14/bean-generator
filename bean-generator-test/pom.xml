@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>bean-generator-test</artifactId>
+	<name>Bean Generator Test</name>
+
+	<parent>
+		<groupId>com.github.nill14</groupId>
+		<artifactId>bean-generator</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<build>
+		<!-- <sourceDirectory>src/main/java</sourceDirectory> -->
+		<plugins>
+			<plugin>
+				<groupId>com.github.nill14</groupId>
+				<artifactId>bean-generator-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<useBinaryResources>false</useBinaryResources>
+					<usePlatformResourcePath>false</usePlatformResourcePath>
+					<acceleoProject>
+						<root>${project.basedir}</root>
+						<entries>
+							<entry>
+								<input>src/main/java</input>
+								<output>target/classes</output>
+							</entry>
+						</entries>
+					</acceleoProject>
+					<packagesToRegister>
+						<packageToRegister>org.eclipse.uml2.uml.UMLPackage</packageToRegister>
+					</packagesToRegister>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
