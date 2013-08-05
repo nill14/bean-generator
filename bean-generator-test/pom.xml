@@ -18,12 +18,17 @@
 				<artifactId>bean-generator-maven-plugin</artifactId>
 				<executions>
 					<execution>
+						<id>acceleo-compile</id>
 						<phase>compile</phase>
+						<goals>
+							<goal>acceleo-compile</goal>
+						</goals>
 					</execution>
 				</executions>
 				<configuration>
 					<useBinaryResources>false</useBinaryResources>
 					<usePlatformResourcePath>false</usePlatformResourcePath>
+					<failOnError>true</failOnError>
 					<acceleoProject>
 						<root>${project.basedir}</root>
 						<entries>
@@ -40,4 +45,23 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- Launch this with the following command: mvn clean org.eclipse.acceleo:maven:3.2.1:acceleo-compile 
+		compile -->
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.acceleo</groupId>
+			<artifactId>org.eclipse.acceleo.engine</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+	</dependencies>
 </project>

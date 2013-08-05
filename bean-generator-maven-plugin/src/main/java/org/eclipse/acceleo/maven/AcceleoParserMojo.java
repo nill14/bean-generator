@@ -28,6 +28,11 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.acceleo.common.internal.utils.AcceleoPackageRegistry;
 import org.eclipse.acceleo.internal.parser.compiler.AcceleoParser;
@@ -42,68 +47,60 @@ import org.eclipse.emf.common.util.URI;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 
+
+
 /**
  * The Acceleo Parser MOJO is used to call the Acceleo Parser from Maven.
  * 
- * @goal acceleo-compile
- * @phase compile
- * @requiresDependencyResolution compile+runtime
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 3.2
  */
+@Mojo(name = "acceleo-compile", defaultPhase = LifecyclePhase.COMPILE, 
+		requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME)
 public class AcceleoParserMojo extends AbstractMojo {
 
-	/**
-	 * @parameter expression="${project}"
-	 * @required
-	 * @readonly
-	 */
+	@Component
 	private MavenProject project;
 
 	/**
 	 * Indicates if we are compiling the Acceleo modules as binary resources.
-	 * 
-	 * @parameter expression = "${acceleo-compile.binaryResource}"
-	 * @required
 	 */
+	@Parameter(required = true, defaultValue = "${acceleo-compile.binaryResource}")
 	private boolean useBinaryResources;
 
 	/**
 	 * The class to use for the uri converter.
 	 * 
-	 * @parameter expression = "${acceleo-compile.uriHandler}"
 	 */
+	@Parameter(defaultValue = "${acceleo-compile.uriHandler}")
 	private String uriHandler;
 
 	/**
 	 * The list of packages to register.
 	 * 
-	 * @parameter expression = "${acceleo-compile.packagesToRegister}"
-	 * @required
 	 */
+	@Parameter(required = true, defaultValue = "${acceleo-compile.packagesToRegister}")
 	private List<String> packagesToRegister;
 
 	/**
 	 * The Acceleo project that should be built.
 	 * 
-	 * @parameter expression = "${acceleo-compile.acceleoProject}"
-	 * @required
 	 */
+	@Parameter(required = true, defaultValue = "${acceleo-compile.acceleoProject}")
 	private AcceleoProject acceleoProject;
 
 	/**
 	 * Indicates if we are compiling the Acceleo modules as binary resources.
 	 * 
-	 * @parameter expression = "${acceleo-compile.usePlatformResourcePath}"
-	 * @required
 	 */
+	@Parameter(required = true, defaultValue = "${acceleo-compile.usePlatformResourcePath}")
 	private boolean usePlatformResourcePath;
 
 	/**
 	 * Indicates if we should fail on errors.
 	 * 
-	 * @parameter expression = "${acceleo-compile.failOnError}"
 	 */
+	@Parameter(defaultValue = "${acceleo-compile.failOnError}")
 	private boolean failOnError;
 
 	/**

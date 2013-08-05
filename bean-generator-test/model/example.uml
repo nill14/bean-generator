@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_XbJ80PkpEeKbz9OMAL0XUw" name="Model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_XbJ80fkpEeKbz9OMAL0XUw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_hmHU8PkpEeKbz9OMAL0XUw" name="com.github.nill14.generator.test">
+    <packagedElement xmi:type="uml:Class" xmi:id="_l3eccPkpEeKbz9OMAL0XUw" name="MyBean">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_opScwPkpEeKbz9OMAL0XUw" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_t07bMPkpEeKbz9OMAL0XUw" name="doSth"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
