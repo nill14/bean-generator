@@ -14,8 +14,8 @@
 	</properties>
 
 	<modules>
-		<module>bean-generator-core</module>
 		<module>bean-generator-maven-plugin</module>
+		<module>bean-generator-core</module>
 		<module>bean-generator-test</module>
 	</modules>
 

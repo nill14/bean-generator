@@ -1,17 +1,9 @@
-/*******************************************************************************
- * Copyright (c) 2008, 2010 Obeo.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Obeo - initial API and implementation
- *******************************************************************************/
-package com.github.nill14.generator.c2;
+package org.eclipse.acceleo.maven;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import org.eclipse.acceleo.engine.generation.strategy.DefaultStrategy;
@@ -29,10 +21,13 @@ import com.google.common.collect.Lists;
 
 public class GeneratorJob extends AbstractAcceleoGenerator {
 
+	private ClassLoader classLoader;
 
-  private String moduleName;
+	private String moduleName;
 
-  private ImmutableList<String> templateNames;
+	private ImmutableList<String> templateNames;
+
+
 
 /**
 	 * Allows the public constructor to be used. Note that a generator created this way cannot be used to
@@ -46,9 +41,11 @@ public class GeneratorJob extends AbstractAcceleoGenerator {
 	 * 
 	 * @generated
 	 */
-	public GeneratorJob(String moduleName, ImmutableList<String> templateNames) {
-        this.moduleName = moduleName;
+	public GeneratorJob(ClassLoader classLoader, String moduleName, ImmutableList<String> templateNames) {
+        this.classLoader = classLoader;
+		this.moduleName = moduleName;
         this.templateNames = templateNames;
+        
     }
 
 
@@ -105,8 +102,8 @@ public class GeneratorJob extends AbstractAcceleoGenerator {
 //    				this.usePlatformResourcePath);
 //    		AcceleoParserListener listener = new AcceleoParserListener();
             
-            
-            GeneratorJob generator = new GeneratorJob(moduleName, templateNames);
+            ClassLoader loader = GeneratorJob.class.getClassLoader();
+            GeneratorJob generator = new GeneratorJob(loader, moduleName, templateNames);
             
             generator.initialize(modelURI, outputFolder, arguments);
 //            generator.initialize(element, outputFolder, arguments);
@@ -197,5 +194,10 @@ public class GeneratorJob extends AbstractAcceleoGenerator {
 	public String[] getTemplateNames() {
         return templateNames.toArray(new String[0]);
     }
+	
+	@Override
+	protected URL findModuleURL(String moduleName) {
+		return classLoader.getResource(moduleName);
+	}
 
 }

@@ -38,6 +38,19 @@
 							</entry>
 						</entries>
 					</acceleoProject>
+					
+					<acceleoGenerator>
+						<generationUnits>
+						
+						<generationUnit>
+							<model>model/example.uml</model>
+							<module>org/eclipse/acceleo/module/sample2/common/generate</module>	
+							<templates>
+								<template>generateElement</template>
+							</templates>					
+						</generationUnit>
+						</generationUnits>
+					</acceleoGenerator>
 					<packagesToRegister>
 						<packageToRegister>org.eclipse.uml2.uml.UMLPackage</packageToRegister>
 					</packagesToRegister>
@@ -50,6 +63,13 @@
 		compile -->
 
 	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>bean-generator-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.eclipse.acceleo</groupId>
 			<artifactId>org.eclipse.acceleo.engine</artifactId>

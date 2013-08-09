@@ -19,7 +19,7 @@ import java.util.List;
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 3.2
  */
-public class AcceleoProject {
+public class AcceleoProjectConfig {
 
 	/**
 	 * The project root.
@@ -39,7 +39,7 @@ public class AcceleoProject {
 	/**
 	 * The dependencies.
 	 */
-	private List<AcceleoProject> dependencies;
+	private List<AcceleoProjectConfig> dependencies;
 
 	/**
 	 * Returns the classpath entries.
@@ -55,7 +55,7 @@ public class AcceleoProject {
 	 * 
 	 * @return The Acceleo project dependencies.
 	 */
-	public List<AcceleoProject> getDependencies() {
+	public List<AcceleoProjectConfig> getDependencies() {
 		return dependencies;
 	}
 
