@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_XbJ80PkpEeKbz9OMAL0XUw" name="Model">
-  <packageImport xmi:type="uml:PackageImport" xmi:id="_XbJ80fkpEeKbz9OMAL0XUw">
-    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
-  </packageImport>
-  <packagedElement xmi:type="uml:Package" xmi:id="_hmHU8PkpEeKbz9OMAL0XUw" name="com.github.nill14.generator.test">
-    <packagedElement xmi:type="uml:Class" xmi:id="_l3eccPkpEeKbz9OMAL0XUw" name="MyBean">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_opScwPkpEeKbz9OMAL0XUw" name="name">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_t07bMPkpEeKbz9OMAL0XUw" name="doSth"/>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BeanGeneratorProfile="http:///schemas/BeanGeneratorProfile/_eZnRYAD4EeOPpPWIZ9bzcA/9" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/BeanGeneratorProfile/_eZnRYAD4EeOPpPWIZ9bzcA/9 ../../bean-generator-core/model/stereotype.profile.uml#_eZnRYQD4EeOPpPWIZ9bzcA">
+  <uml:Model xmi:id="_XbJ80PkpEeKbz9OMAL0XUw" name="Model">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_XbJ80fkpEeKbz9OMAL0XUw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hmHU8PkpEeKbz9OMAL0XUw" name="com.github.nill14.generator.test">
+      <packagedElement xmi:type="uml:Class" xmi:id="_l3eccPkpEeKbz9OMAL0XUw" name="MyBean">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_opScwPkpEeKbz9OMAL0XUw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_t07bMPkpEeKbz9OMAL0XUw" name="doSth"/>
+      </packagedElement>
     </packagedElement>
-  </packagedElement>
-</uml:Model>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_-hDokADwEeOPpPWIZ9bzcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-hQc4ADwEeOPpPWIZ9bzcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../bean-generator-core/model/stereotype.profile.uml#_eZnRYQD4EeOPpPWIZ9bzcA"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="../../bean-generator-core/model/stereotype.profile.uml#_h34osADwEeOPpPWIZ9bzcA"/>
+    </profileApplication>
+  </uml:Model>
+  <BeanGeneratorProfile:MutableBean xmi:id="__x_E8ADwEeOPpPWIZ9bzcA" base_Class="_l3eccPkpEeKbz9OMAL0XUw"/>
+</xmi:XMI>
