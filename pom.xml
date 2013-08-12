@@ -117,6 +117,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.core</groupId>
+			<artifactId>runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.core</groupId>
+			<artifactId>resources</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.core</groupId>
 			<artifactId>contenttype</artifactId>
 		</dependency>
 		<dependency>
@@ -283,6 +291,22 @@
 				<scope>system</scope>
 				<systemPath>${eclipseDir}/../dropins/lpg.runtime.java_2.0.17.v201004271640.jar</systemPath>
 			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.core</groupId>
+				<artifactId>runtime</artifactId>
+				<version>3.9.0</version>
+				<scope>system</scope>
+				<systemPath>${eclipseDir}/org.eclipse.core.runtime_3.9.0.v20130326-1255.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.core</groupId>
+				<artifactId>resources</artifactId>
+				<version>3.8.0</version>
+				<scope>system</scope>
+				<systemPath>${eclipseDir}/org.eclipse.core.resources_3.8.100.v20130521-2026.jar</systemPath>
+			</dependency>
+
 			<dependency>
 				<groupId>org.eclipse.core</groupId>
 				<artifactId>contenttype</artifactId>

@@ -26,3 +26,16 @@
 [query public hasComment(c : Class) : Boolean =  c.isLeaf._not() /]
 
 [query public typer(p : Property) : String =  p.type.name /]
+
+[query public hasStereotype(class : Class, stereotypeName : String) : Boolean
+	= true
+/]
+
+[query public getPackageName(class : Class) : String
+	= 'com.github.nill14.test'
+/]
+
+[query public getJavaFileName(class : Class) : String
+	= 'com/github/nill14/test/' + class.name.toUpperFirst() + '.java'
+/]
+

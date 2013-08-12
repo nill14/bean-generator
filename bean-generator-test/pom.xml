@@ -40,15 +40,25 @@
 					</acceleoProject>
 					
 					<acceleoGenerator>
+						<outputDirectory>src-gen</outputDirectory>		
 						<generationUnits>
 						
-						<generationUnit>
-							<model>model/example.uml</model>
-							<module>org/eclipse/acceleo/module/sample2/common/generate</module>	
-							<templates>
-								<template>generateElement</template>
-							</templates>					
-						</generationUnit>
+							<generationUnit>
+								<model>model/example.uml</model>
+								<module>org/eclipse/acceleo/module/sample2/common/generate</module>	
+								<templates>
+									<template>generateElement</template>
+								</templates>			
+							</generationUnit>
+							
+							<generationUnit>
+								<model>model/example.uml</model>
+								<module>com/github/nill14/generator/code/mutableBean</module>	
+								<templates>
+									<template>mutableBean</template>
+								</templates>	
+							</generationUnit>							
+							
 						</generationUnits>
 					</acceleoGenerator>
 					<packagesToRegister>

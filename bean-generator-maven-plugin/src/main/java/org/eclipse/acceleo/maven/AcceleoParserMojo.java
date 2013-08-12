@@ -34,6 +34,7 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
+import org.eclipse.acceleo.common.AcceleoServicesRegistry;
 import org.eclipse.acceleo.common.internal.utils.AcceleoPackageRegistry;
 import org.eclipse.acceleo.internal.parser.compiler.AcceleoParser;
 import org.eclipse.acceleo.internal.parser.compiler.AcceleoProject;
@@ -46,6 +47,7 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 
 import com.google.common.base.Function;
+import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
@@ -176,7 +178,11 @@ public class AcceleoParserMojo extends AbstractMojo {
     				ImmutableList<String> templateNames = ImmutableList.copyOf(unit.getTemplates());
     				String moduleName = unit.getModule();
     				
-    				File outputFolder = new File(basedir, "src/main/java");
+    				String dir = Optional
+    						.fromNullable(acceleoGenerator.getOutputDirectory())
+    						.or("src/main/java");
+    				
+    				File outputFolder = new File(basedir, dir);
     				
     				List<String> arguments = Lists.newArrayList();
     				
@@ -191,6 +197,17 @@ public class AcceleoParserMojo extends AbstractMojo {
     				generator.initialize(modelURI, outputFolder, arguments);
 //        		generator.initialize(element, outputFolder, arguments);
 //           	generator.addPropertiesFile(args[i]);
+    				
+    				
+    				try {
+//    					AcceleoServicesRegistry.INSTANCE.setClassLoader(newLoader);
+						String className = "com.github.nill14.generator.services.UML2Services";
+						Class.forName(className);
+						AcceleoServicesRegistry.INSTANCE.addServiceClass((URI)null, className);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
     				
     				generator.doGenerate(new BasicMonitor());
     				
